@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kavya Sunder | Geolocation</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Geolocation: Bangalore</h1>
+      <p>
+        This web page shows the user to visualize the city and helps them to
+        explore the places nearby.
+      </p>
+      <button class="maps-btn" id="maps-btn">Get My Location</button>
+    </header>
+
+    <!-- <div class="canvas-container">
+      <canvas class="maps-canvas" id="map"></canvas>
+    </div> -->
+
+    <div
+      id="myMap"
+      style="position: relative; width: 1000px; height: 500px"
+    ></div>
+
+    <script src="main1.js"></script>
+    <script
+      src="https://www.bing.com/api/maps/mapcontrol?callback=getMap&key=AuNx_i2HaSR-xBzZQ9OTJHNtOpH991UYZnAAcjzthR8BbgTEilnbBwa01n3h9y8j"
+      async
+    ></script>
+  </body>
+</html>
