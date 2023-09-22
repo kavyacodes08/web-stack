@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Product Catalog</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background-color: antiquewhite;
+    }
+
+    #product-container {
+      background-color: antiquewhite;
+      margin: 23px;
+    }
+
+    select {
+      margin-left: 700px;
+      word-wrap: normal;
+    }
+
+    .navbar-brand {
+      color: white;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .product {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    .product img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar  bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand"><b>Laptop Store</b></a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" id="search-bar" type="search" placeholder="Search Products.."
+          aria-label="Search">
+
+      </form>
+    </div>
+  </nav>
+  <h3 id="product-catalog" style="text-align: center; margin: 23px;">Product Catalog</h1>
+    <!-- <input type="text" id="search-bar" placeholder="Search products..."> -->
+    <select id="sort-by">
+      <option value="price">Price</option>
+      <option value="name">Name</option>
+    </select>
+    <div id="product-container" class="card" style="width: rem;"></div>
+
+    <script>
+      $(document).ready(function () {
+        $.ajax({
+          url: "products.json",
+          dataType: "json",
+          success: function (data) {
+            displayProducts(data);
+          }
+        });
+      });
+
+      function displayProducts(products) {
+        var productContainer = document.getElementById("product-container");
+        var sortBySelect = document.getElementById("sort-by");
+        var searchInput = document.getElementById("search-bar");
+
+        sortBySelect.addEventListener("change", function () {
+          sortProducts(products);
+        });
+
+        searchInput.addEventListener("input", function () {
+          filterProducts(products);
+        });
+
+        sortProducts(products);
+
+        function sortProducts(products) {
+          var sortBy = sortBySelect.value;
+          products.sort(function (a, b) {
+            if (sortBy === "price") {
+              return a.price - b.price;
+            } else if (sortBy === "name") {
+              return a.name.localeCompare(b.name);
+            }
+          });
+          displayFilteredProducts(products);
+        }
+
+        function filterProducts(products) {
+          var searchKeyword = searchInput.value.toLowerCase();
+          var filteredProducts = products.filter(function (product) {
+            return (
+              product.name.toLowerCase().includes(searchKeyword) ||
+              product.description.toLowerCase().includes(searchKeyword)
+            );
+          });
+          displayFilteredProducts(filteredProducts);
+        }
+
+        function displayFilteredProducts(filteredProducts) {
+          productContainer.innerHTML = "";
+          for (var i = 0; i < filteredProducts.length; i++) {
+            var product = filteredProducts[i];
+            var productDiv = document.createElement("div");
+            productDiv.className = "product";
+            productDiv.innerHTML =
+              // "<img src='" +
+              // product.image +
+              // "'><h3>" +
+              // product.name +
+              // "</h3><p>" +
+              // product.description +
+              // "</p><p>Price: $" +
+              // product.price +
+              // "</p>";
+              `
+            <img src="${product.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+           <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.description}</p>
+            <a href="#" class="btn btn-primary">${product.price}</a>
+            </div>
+            `
+            productContainer.appendChild(productDiv);
+          }
+        }
+      }
+    </script>
+</body>
+
+</html>

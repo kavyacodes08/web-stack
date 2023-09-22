@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Apple MacBook Air 2020",
+      "description": "M1, 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey",
+      "price": 80000.00,
+      "image": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685969130/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256606_ufqgl3.png?tr=w-240"
+    },
+    {
+      "name": "HP 15s-fq2717TU",
+      "description": "Intel Core i3 11th Gen (15.6 inch, 8GB, 512GB, Windows 11 Home, MS Office 2021, Intel UHD, FHD Display, Natural Silver, 7G6H3PA#ACJ)",
+      "price": 38490.00,
+      "image": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1683563708/Croma%20Assets/Computers%20Peripherals/Laptop/Images/268284_0_nhykfv.png?tr=w-240"
+    },
+    {
+      "name": "ASUS X1502ZA",
+      "description": "Intel Core i5 12th Gen (15 inch, 8GB, 512GB, Windows 11, MS Office 2021, Intel Iris Xe Graphics, LED Backlight Display, Quiet Blue, X1502ZA-EJ532WS)",
+      "price": 51990.00,
+      "image": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1692595086/Croma%20Assets/Computers%20Peripherals/Laptop/Images/272253_x5kvhg.png?tr=w-240"
+    },
+    {
+      "name": "DELL Inspiron 15 5520",
+      "description": "Intel Core i5 12th Gen (15.6 inch, 16GB, 512GB, Windows 11, MS Office 2021, NVIDIA GeForce RTX 3050 Graphics, FHD LED-Backlit Display, Dark Shadow Grey, D560822WIN9B)",
+      "price": 73990.00,
+      "image": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1663347404/Croma%20Assets/Computers%20Peripherals/Laptop/Images/252184_0_sz4zqo.png?tr=w-240"
+    },
+    {
+      "name": "Apple MacBook Pro ",
+      "description": "M2 Pro, 14.2 inch, 16GB, 512GB, macOS, Silver",
+      "price": 199990.00,
+      "image": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966781/Croma%20Assets/Computers%20Peripherals/Laptop/Images/268363_pkcn86.png?tr=w-240"
+    }
+  ]
